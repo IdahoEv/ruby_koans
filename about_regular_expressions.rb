@@ -122,14 +122,14 @@ class AboutRegularExpressions < EdgeCase::Koan
   # ------------------------------------------------------------------
 
   def test_parentheses_also_capture_matched_content_by_number
-    assert_equal __, "Gray, James"[/(\w+), (\w+)/, 1]
-    assert_equal __, "Gray, James"[/(\w+), (\w+)/, 2]
+    assert_equal "Gray", "Gray, James"[/(\w+), (\w+)/, 1]
+    assert_equal 'James', "Gray, James"[/(\w+), (\w+)/, 2]
   end
 
   def test_variables_can_also_be_used_to_access_captures
-    assert_equal __, "Name:  Gray, James"[/(\w+), (\w+)/]
-    assert_equal __, $1
-    assert_equal __, $2
+    assert_equal ['Gray', 'James'], "Name:  Gray, James"[/(\w+), (\w+)/]
+    assert_equal 'Gray', $1
+    assert_equal 'James', $2
   end
 
   # ------------------------------------------------------------------
