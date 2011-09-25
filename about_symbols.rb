@@ -38,12 +38,14 @@ class AboutSymbols < EdgeCase::Koan
   # Because whatever symbol literal you passed to include?() would be inserted into
   # the symbol table just as it was created, and so the test would always pass.
   #   e.g.:  assert_equal true, Symbol.all_symbols.include?(:any_symbol_you_like_here)
+  #
+  #
   in_ruby_version("mri") do
     RubyConstant = "What is the sound of one hand clapping?"
     def test_constants_become_symbols
       all_symbols = Symbol.all_symbols
 
-      assert_equal __, all_symbols.include?(__)
+      assert_equal true, all_symbols.include?(:RubyConstant)
     end
   end
 
