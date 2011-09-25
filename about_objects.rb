@@ -21,13 +21,13 @@ class AboutObjects < EdgeCase::Koan
 
   def test_every_object_has_an_id
     obj = Object.new
-    assert_equal __, obj.object_id.class
+    assert_equal Fixnum, obj.object_id.class
   end
 
   def test_every_object_has_different_id
     obj = Object.new
     another_obj = Object.new
-    assert_equal __, obj.object_id != another_obj.object_id
+    assert_equal true, obj.object_id != another_obj.object_id
   end
 
   def test_some_system_objects_always_have_the_same_id
