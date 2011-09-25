@@ -79,6 +79,7 @@ EOS
     there = "World"
     hi += there
     assert_equal "Hello, ", original_string
+    assert_equal "Hello, World", hi
     assert_equal false, original_string.object_id == hi.object_id
   end
 
@@ -105,18 +106,18 @@ EOS
 
   def test_double_quoted_string_interpret_escape_characters
     string = "\n"
-    assert_equal __, string.size
+    assert_equal 1, string.size
   end
 
   def test_single_quoted_string_do_not_interpret_escape_characters
     string = '\n'
-    assert_equal __, string.size
+    assert_equal 2, string.size
   end
 
   def test_single_quotes_sometimes_interpret_escape_characters
     string = '\\\''
-    assert_equal __, string.size
-    assert_equal __, string
+    assert_equal 2, string.size
+    assert_equal "\\'", string
   end
 
   def test_double_quoted_strings_interpolate_variables
