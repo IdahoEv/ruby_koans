@@ -127,7 +127,7 @@ class AboutRegularExpressions < EdgeCase::Koan
   end
 
   def test_variables_can_also_be_used_to_access_captures
-    assert_equal ['Gray', 'James'], "Name:  Gray, James"[/(\w+), (\w+)/]
+    assert_equal "Gray, James", "Name:  Gray, James"[/(\w+), (\w+)/]
     assert_equal 'Gray', $1
     assert_equal 'James', $2
   end
@@ -136,9 +136,9 @@ class AboutRegularExpressions < EdgeCase::Koan
 
   def test_a_vertical_pipe_means_or
     grays = /(James|Dana|Summer) Gray/
-    assert_equal __, "James Gray"[grays]
-    assert_equal __, "Summer Gray"[grays, 1]
-    assert_equal __, "Jim Gray"[grays, 1]
+    assert_equal 'James Gray', "James Gray"[grays]
+    assert_equal 'Summer', "Summer Gray"[grays, 1]
+    assert_equal nil, "Jim Gray"[grays, 1]
   end
 
   # THINK ABOUT IT:
