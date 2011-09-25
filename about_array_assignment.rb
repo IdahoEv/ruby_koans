@@ -32,13 +32,13 @@ class AboutArrayAssignment < EdgeCase::Koan
 
   def test_parallel_assignments_with_subarrays
     first_name, last_name = [["Willie", "Rae"], "Johnson"]
-    assert_equal __, first_name
-    assert_equal __, last_name
+    assert_equal ["Willie", "Rae"], first_name
+    assert_equal "Johnson", last_name
   end
 
   def test_parallel_assignment_with_one_variable
     first_name, = ["John", "Smith"]
-    assert_equal __, first_name
+    assert_equal "John", first_name
   end
 
   def test_swapping_with_parallel_assignment
